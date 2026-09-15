@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuizArena — 20 Question Trivia Challenge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="stage" aria-hidden="true">
+  <div class="spotlight spot-1"></div>
+  <div class="spotlight spot-2"></div>
+</div>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">Q</span>
+      <span>Quiz<em>Arena</em></span>
+    </div>
+    <div class="live-score" id="liveScore" hidden>
+      Score <strong id="liveScoreVal">0</strong>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ START SCREEN ============ -->
+    <section class="screen start-screen" id="startScreen">
+      <p class="eyebrow">20 questions · mixed categories · 15 seconds each</p>
+      <h1>How much do you<br><span>actually</span> know?</h1>
+      <p class="lede">Science, history, geography, sport and pop culture — one question at a time, one buzzer at a time. Answer before the ring runs out.</p>
+
+      <div class="start-stats">
+        <div><strong>20</strong><span>Questions</span></div>
+        <div><strong>15s</strong><span>Per question</span></div>
+        <div><strong>5</strong><span>Categories</span></div>
+      </div>
+
+      <button class="btn btn-primary btn-lg" id="startBtn">Step up to the buzzer →</button>
+    </section>
+
+    <!-- ============ QUIZ SCREEN ============ -->
+    <section class="screen quiz-screen" id="quizScreen" hidden>
+
+      <div class="quiz-top">
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="quiz-meta">
+          <span class="q-count">Question <strong id="qNum">1</strong> / 20</span>
+          <span class="q-category" id="qCategory">Science</span>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="quizCard">
+        <div class="timer-wrap">
+          <svg class="timer-ring" viewBox="0 0 80 80">
+            <circle class="timer-track" cx="40" cy="40" r="34"></circle>
+            <circle class="timer-bar" id="timerBar" cx="40" cy="40" r="34"></circle>
+          </svg>
+          <span class="timer-num" id="timerNum">15</span>
+        </div>
+
+        <h2 class="question-text" id="questionText">Loading question…</h2>
+
+        <div class="options-grid" id="optionsGrid"></div>
+
+        <p class="feedback-line" id="feedbackLine">&nbsp;</p>
+      </div>
+    </section>
+
+    <!-- ============ RESULT SCREEN ============ -->
+    <section class="screen result-screen" id="resultScreen" hidden>
+      <p class="eyebrow" id="resultTag">Final result</p>
+      <div class="score-ring-wrap">
+        <svg class="score-ring" viewBox="0 0 160 160">
+          <circle class="score-track" cx="80" cy="80" r="70"></circle>
+          <circle class="score-bar" id="scoreBar" cx="80" cy="80" r="70"></circle>
+        </svg>
+        <div class="score-center">
+          <strong id="scoreFraction">0/20</strong>
+          <span id="scorePercent">0%</span>
+        </div>
+      </div>
+
+      <h2 id="scoreTitle">Nice attempt!</h2>
+      <p id="scoreMessage" class="lede">Let's see how you did.</p>
+
+      <div class="result-stats">
+        <div class="stat-pill correct"><strong id="statCorrect">0</strong><span>Correct</span></div>
+        <div class="stat-pill wrong"><strong id="statWrong">0</strong><span>Wrong</span></div>
+        <div class="stat-pill skipped"><strong id="statSkipped">0</strong><span>Timed out</span></div>
+      </div>
+
+      <div class="result-ctas">
+        <button class="btn btn-primary btn-lg" id="restartBtn">Play again</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div class="confetti-layer" id="confettiLayer"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
